@@ -106,7 +106,11 @@
       <p class="deadline-caption">已合并截至当前检索到的全部相关公告。</p>
       {% else %}
       <p class="deadline-value deadline-unknown">无法判定</p>
+      {% if result.input_url %}
+      <p class="deadline-caption">未能从所输入地址得出可用结论：<a href="{{ result.input_url }}" target="_blank" rel="noopener">{{ result.input_url }}</a></p>
+      {% else %}
       <p class="deadline-caption">本次抓取未形成可用结论，请勿沿用此前记录的时间。</p>
+      {% endif %}
       {% endif %}
 
       {% if result.determinable and result.deadline_source_url %}
